@@ -1,6 +1,7 @@
 <h1>Listing badges</h1>
 
-<table>
+
+<table class='table table-hover'>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -13,13 +14,17 @@
   <tr>
     <td><%= badge.name %></td>
     <td><%= badge.description %></td>
-    <td><%= link_to 'Show', badge %></td>
-    <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
-    <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+    <div class="btn-group">
+    <%= link_to 'Show', badge, class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_badge_path(badge), class: 'btn btn-info' %>
+    </div>
+    <%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Badge', new_badge_path %>
+<%= link_to 'New Badge', new_badge_path, class: 'btn btn-large' %>
