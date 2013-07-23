@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @resource.name %>
+</p>
+
+<% @resource.attributes.each do |a| %>
+  <p>name: <%= a.name%></p>
+  <p>description: <%= a.description%></p>
+  <p>type: <%= a.atype%></p>
+  <p>value: <%= a.value%></p>
+<% end %>
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>

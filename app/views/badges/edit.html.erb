@@ -1,0 +1,15 @@
+<h1>Editing badge</h1>
+
+<%= render 'form' %>
+
+<% @badge.details.each do |detail| %>
+<div>
+<p><b><%= detail.kind %></b> <%= detail.value %></p>
+</div>
+<% end %>
+
+<% @detail = @badge.details.build %>
+<%= render 'details/form' %>
+
+<%= link_to 'Show', @badge %> |
+<%= link_to 'Back', badges_path %>
