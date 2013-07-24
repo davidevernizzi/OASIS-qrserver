@@ -17,7 +17,7 @@ class BadgesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @badge.to_json(:include => :details) }
+      format.json { render :json => @badge.to_json(:include => [:details, :presences]) }
     end
   end
 

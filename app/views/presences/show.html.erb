@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Created by:</b>
+  <%= @presence.created_by %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @presence.value %>
+</p>
+
+<p>
+  <b>Badge:</b>
+  <%= @presence.badge %>
+</p>
+
+
+<%= link_to 'Edit', edit_presence_path(@presence) %> |
+<%= link_to 'Back', presences_path %>

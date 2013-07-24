@@ -1,9 +1,13 @@
 Qrserver::Application.routes.draw do
+  resources :presences
+
+
   resources :details
 
 
   resources :badges do
   	resources :details
+	resources :presences
   end
 
 
