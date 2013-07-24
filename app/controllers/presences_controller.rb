@@ -2,7 +2,12 @@ class PresencesController < ApplicationController
   # GET /presences
   # GET /presences.json
   def index
-    @presences = Presence.all
+    if (params[:day] == nil)
+	@presences = Presence.all
+    else
+	@presences = Presence.where(created_at: params[:day].to_i.days.ago..1.days.from_now)
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
