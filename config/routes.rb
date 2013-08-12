@@ -1,4 +1,12 @@
 Qrserver::Application.routes.draw do
+  get "bussoleno/index"
+  get "bussoleno/new"
+  post "bussoleno/new", to: 'bussoleno#create'
+
+  get '/badges/bussoleno', to: 'badges#bussoleno'
+  post '/badges/bussoleno', to: 'badges#newbussoleno'
+
+
   resources :presences
 
 
@@ -29,6 +37,9 @@ Qrserver::Application.routes.draw do
   end
 
 
+  get '/presences/list/:id', to: 'presences#list'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

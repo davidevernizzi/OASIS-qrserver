@@ -1,0 +1,12 @@
+
+<%= form_tag do %>
+  <% ['first_name', 'family_name', 'place', 'description'].each do | f | #TODO: use helper %> 
+     <%= label_tag(f,f) #TODO: use helper for IT label %>
+     <%= text_field_tag(f) %>
+  <% end %>
+  
+  <%= submit_tag("Crea") %>
+<% end %>
+
+
+
