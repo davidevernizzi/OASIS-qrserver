@@ -89,4 +89,17 @@ class PresencesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def list
+    if params[:id] == 'all'
+       @badges = Badge.find(:all)
+    else
+       # use Badge.pluck instead?
+       a_badges = Array.new
+       a_badges << Badge.find(params[:id])
+       @badges = a_badges
+    end
+
+    render :list
+  end
 end
