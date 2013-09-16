@@ -48,7 +48,8 @@ class PresencesController < ApplicationController
 
     respond_to do |format|
       if @presence.save
-        format.html { redirect_to @presence, notice: 'Presence was successfully created.' }
+#        format.html { redirect_to @presence, notice: 'Presence was successfully created.' }
+        format.html { render json: @presence, status: :created, location: @presence }
         format.json { render json: @presence, status: :created, location: @presence }
       else
         format.html { render action: "new" }

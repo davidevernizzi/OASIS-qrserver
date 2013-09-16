@@ -1,0 +1,13 @@
+
+<%= form_tag do %>
+  <% @form_fields.each do | f | %> 
+     <%= label_tag(@form_labels[f]) %>
+     <%= text_field_tag(f, @badge[f]) %>
+  <% end %>
+  
+  <br/>
+  <%= submit_tag("Crea", :class=>'btn btn-large') %>
+<% end %>
+
+
+

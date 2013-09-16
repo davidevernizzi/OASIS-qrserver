@@ -1,0 +1,12 @@
+<h1>Modifica badge</h1>
+
+<%= form_tag do %>
+
+<% @badge.details.each do |detail| %>
+     <%= label_tag(@form_labels[detail.kind]) %>
+     <%= text_field_tag(detail.kind, detail.value) %>
+  <% end %>
+  
+  <br/>
+  <%= submit_tag("Modifica", :class=>'btn btn-large') %>
+<% end %>
