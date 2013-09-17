@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+<div class='span3'>
+<h1>
+  <%= @badge.name %>
+</h1>
+
+<% @badge.details.each do |detail| %>
+<div class='row'>
+<div class='span3'>
+<p><span class="label label-info"><%= @form_labels[detail.kind] %></span> 
+<%= detail.value %></p>
+</div>
+</div>
+<% end %>
+
+</div>
+
+<div class='span3' style='border-right: 1px solid #eee'>
+<p>
+<%= image_tag "http://api.qrserver.com/v1/create-qr-code/?data=#{url_for(:controller => :badges, :action => :show, :id => @badge.id, :only_path => false)}.json&size=250x250" %>
+</p>
+</div>
+</div>
+
+<div class='row'>
+<div class='span6'>
+<hr/>
+</div>
+</div>
+

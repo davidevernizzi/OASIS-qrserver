@@ -5,6 +5,7 @@ Qrserver::Application.routes.draw do
   post "bussoleno/new", to: 'bussoleno#create'
   get "bussoleno/edit/:id", to: 'bussoleno#edit'
   post "bussoleno/edit/:id", to: 'bussoleno#editbussoleno'
+  get "bussoleno/print/:id", to: 'bussoleno#print'
 
   get '/badges/bussoleno', to: 'badges#bussoleno'
   post '/badges/bussoleno', to: 'badges#newbussoleno'

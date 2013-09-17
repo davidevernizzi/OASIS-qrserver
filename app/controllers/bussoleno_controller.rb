@@ -18,6 +18,10 @@ class BussolenoController < ApplicationController
       @badge = Badge.find(params[:id])
   end
 
+  def print
+      @badge = Badge.find(params[:id])
+  end
+
   def new
       @badge = Badge.new
   end

@@ -34,6 +34,7 @@
                 .fail(function() { alert('Problema nel check in'); })
     ", class: 'btn btn-info' %>
     </div>
+    <%= link_to 'Stampa', url_for(controller:'bussoleno', action:'print', id:badge.id), class: 'btn btn-info' %>
     <%= link_to 'Cancella', badge, method: :delete, data: { confirm: 'Confermare la cancellazione del badge. Non sara\' possibile annullare' }, class: 'btn btn-danger' %>
     </td>
   </tr>
