@@ -1,4 +1,11 @@
 <h1>Nuovo badge</h1>
 <%= @foo%>
 
+
+
+<%= form_tag({:controller => "bussoleno", :action => 'new', :method=> :post},  {:multipart => true}) do %>
 <%= render 'form' %>
+
+<br/>
+<%= submit_tag("Crea", :class=>'btn btn-large') %>
+<% end %>

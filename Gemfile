@@ -27,6 +27,7 @@ group :assets do
   gem "therubyracer"
   gem "less-rails"
   gem "twitter-bootstrap-rails"
+  gem 'bootstrap-datepicker-rails'
 end
 
 gem 'jquery-rails'
