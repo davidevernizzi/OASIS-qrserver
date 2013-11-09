@@ -46,6 +46,8 @@ class BussolenoController < ApplicationController
         @form_labels.each do |field,label|
             @badge.add_detail(field, params[field])
         end
+
+        @badge.add_operation 'check_in', request.base_url + presences_path
     
         #
         #uploaded_io = params[:foo]

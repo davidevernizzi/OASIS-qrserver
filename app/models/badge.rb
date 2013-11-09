@@ -9,10 +9,18 @@ class Badge < ActiveRecord::Base
     @search_fields = []
 
     def add_detail (kind, value)
-        @detail = self.details.create()
+        @detail = self.details.create
         @detail.kind = kind
         @detail.value = value
         @detail.save
+    end
+
+    def add_operation (name, url, description='')
+        @operation = self.operations.create
+        @operation.name = name
+        @operation.url = url
+        @operation.description = description
+        @operation.save
     end
 
     def self.add_search_condition(params, field)
