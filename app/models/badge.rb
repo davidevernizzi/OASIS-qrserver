@@ -3,6 +3,7 @@ class Badge < ActiveRecord::Base
 
     has_many :details
     has_many :presences
+    has_many :operations
 
     @form_labels = {}
     @search_fields = []

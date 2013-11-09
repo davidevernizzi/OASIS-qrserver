@@ -21,7 +21,7 @@ class BussolenoController < ApplicationController
 
         respond_to do |format|
             format.html # show.html.erb
-            format.json { render :json => @badge.to_json(:include => [:details, :presences]) }
+            format.json { render :json => @badge.to_json(:include => [:details, :presences, :operations]) }
         end
     end
 

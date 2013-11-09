@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724050802) do
+ActiveRecord::Schema.define(:version => 20131109153243) do
 
   create_table "attributes", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20130724050802) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "operations", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "badge_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "operations", ["badge_id"], :name => "index_operations_on_badge_id"
 
   create_table "presences", :force => true do |t|
     t.text     "created_by"
