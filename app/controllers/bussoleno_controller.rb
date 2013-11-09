@@ -41,11 +41,12 @@ class BussolenoController < ApplicationController
         @form_labels.each do |field,label|
             @badge.add_detail(field, params[field])
         end
-
-        uploaded_io = params[:foo]
-        File.open(Rails.root.join(uploaded_io.original_filename), 'w') do |file|
-              file.write(uploaded_io.read)
-        end
+    
+        #
+        #uploaded_io = params[:foo]
+        #File.open(Rails.root.join(uploaded_io.original_filename), 'w') do |file|
+        #      file.write(uploaded_io.read)
+        #end
 
         redirect_to :controller=>'bussoleno', :action=>'index'
     end
@@ -81,7 +82,7 @@ class BussolenoController < ApplicationController
             "place_number" => "Numero posteggio",
             "place_owner" => "Titolare posteggio (S/N)",
             "place" => "Luogo",
-            "picture" => "Fotografia",
+#            "picture" => "Fotografia",
             "buy_date" => "Subentro per acquisto il",
             "rent_date" => "Subentro per affitto il",
             "description" => "Descrizione",
@@ -94,8 +95,9 @@ class BussolenoController < ApplicationController
         ]
         @form_types = {
             'description' => 'text_area',
-            'picture' => 'file',
+#            'picture' => 'file',
             'vara_concession_date' => 'date',
+            'place_owner' => 'choice',
         }
     end
 end
