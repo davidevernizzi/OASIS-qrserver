@@ -18,6 +18,11 @@ class BussolenoController < ApplicationController
 
     def show
         @badge = Badge.find(params[:id])
+
+        respond_to do |format|
+            format.html # show.html.erb
+            format.json { render :json => @badge.to_json(:include => [:details, :presences]) }
+        end
     end
 
     def print
