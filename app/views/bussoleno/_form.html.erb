@@ -1,8 +1,20 @@
 
-<%= form_tag do %>
-  <% @form_fields.each do | f | %> 
-     <%= label_tag(@form_labels[f]) %>
-     <%= text_field_tag(f, @badge[f]) %>
+<%= form_tag({:controller => "bussoleno", :action => 'new', :method=> :post},  {:multipart => true}) do %>
+  <% @form_labels.each do |k,v| %> 
+     <%= label_tag(v) %>
+     <%=
+         case @form_types[k]
+         when 'text_area'
+             text_area_tag(k, @badge[k])
+         when 'file'
+             file_field_tag('foo')
+         when 'date'
+             text_field_tag k, @badge[k], {:onclick => '$("#' + k + '").datepicker();'}
+         else
+             text_field_tag(k, @badge[k])
+         end
+      %>
+            
   <% end %>
   
   <br/>

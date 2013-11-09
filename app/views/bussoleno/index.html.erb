@@ -5,6 +5,17 @@
 </div>
 <br/>
 
+<%= form_tag '/bussoleno/index', :method => 'get' do %>
+    <div>
+        <% @search_fields.each do |field| %>
+            <%= label_tag field, @form_labels[field] %>
+            <%= text_field_tag field, params[field] %>
+            <br/>
+        <% end %>
+        <%= submit_tag "Cerca", :name => nil, :class => 'btn' %>
+    </div>
+<% end %>
+
 <table class='table table-hover'>
   <tr>
       <th><%= @form_labels['first_name'] %></th>
@@ -35,6 +46,7 @@
     ", class: 'btn btn-info' %>
     </div>
     <%= link_to 'Stampa', url_for(controller:'bussoleno', action:'print', id:badge.id), class: 'btn btn-info' %>
+    <%= link_to 'Stampa QR-Code', url_for(controller:'bussoleno', action:'print_small', id:badge.id), class: 'btn btn-info' %>
     <%= link_to 'Cancella', badge, method: :delete, data: { confirm: 'Confermare la cancellazione del badge. Non sara\' possibile annullare' }, class: 'btn btn-danger' %>
     </td>
   </tr>
