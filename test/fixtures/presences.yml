@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  created_by: MyText
+  value: 1
+  badge: 
+
+two:
+  created_by: MyText
+  value: 1
+  badge: 

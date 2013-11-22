@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+<div class='span8'>
+<h1>
+  <%= @badge.name %>
+</h1>
+<p class="text-info">
+  <%= @badge.description %>
+</p>
+
+<% @badge.details.each do |detail| %>
+<div class='row'>
+<div class='span2'>
+<p><span class="label label-info pull-right"><%= detail.kind %></span> 
+</div>
+<div class='span6'>
+<%= detail.value %></p>
+</div>
+</div>
+<% end %>
+
+</div>
+
+<div class='span4'>
+<p>
+<%= image_tag "http://api.qrserver.com/v1/create-qr-code/?data=#{badge_path(@badge)}&size=250x250" %>
+</p>
+</div>
+</div>
+
+
+<% if @badge.presences != nil #FIXME %>
+<h2>Presences</h2>
+<% @badge.presences.each do |presence| %>
+<div>
+<span><%= presence.value %> on <%= presence.created_at %> by <%= presence.created_by %>
+</div>
+<% end %>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_badge_path(@badge) %> |
+<%= link_to 'Back', badges_path %>

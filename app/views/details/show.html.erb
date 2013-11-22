@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Kind:</b>
+  <%= @detail.kind %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @detail.value %>
+</p>
+
+<p>
+  <b>Badge:</b>
+  <%= @detail.badge %>
+</p>
+
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

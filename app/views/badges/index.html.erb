@@ -1,0 +1,31 @@
+<h1>Listing badges</h1>
+
+
+<table class='table table-hover'>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @badges.each do |badge| %>
+  <tr>
+    <td><%= badge.name %></td>
+    <td><%= badge.description %></td>
+    <td>
+    <div class="btn-group">
+    <%= link_to 'Show', badge, class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_badge_path(badge), class: 'btn btn-info' %>
+    <%= link_to_function 'Check In', "$.post('#{presences_path()}', {'#{:badge_id}':'#{badge.id}', '#{:presence}[#{:created_by}]':'console'})", class: 'btn btn-info' %>
+    </div>
+    <%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Badge', new_badge_path, class: 'btn btn-large' %>

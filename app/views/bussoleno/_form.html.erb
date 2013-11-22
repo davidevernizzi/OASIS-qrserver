@@ -1,0 +1,23 @@
+
+  <% @form_labels.each do |k,v| %> 
+     <%= label_tag(v) %>
+     <%=
+         case @form_types[k]
+         when 'text_area'
+             text_area_tag k, @badge[k]
+         when 'file'
+             file_field_tag k
+         when 'date'
+             text_field_tag k, @badge[k], {:onclick => '$("#' + k + '").datepicker();'}
+         when 'choice'
+             select_tag k, options_for_select(['S', 'N'], 'S') 
+         else
+             text_field_tag k, @badge[k]
+         end
+      %>
+            
+  <% end %>
+  
+
+
+

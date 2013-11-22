@@ -1,0 +1,24 @@
+<h1>Modifica badge</h1>
+
+<%= form_tag do %>
+
+<% @badge.details.each do |detail| %>
+     <%= label_tag(@form_labels[detail.kind]) %>
+     <%= text_field_tag(detail.kind, detail.value)
+         case @form_types[detail.kind]
+         when 'text_area'
+             text_area_tag detail.kind, detail.value
+         when 'file'
+             file_field_tag detail.kind
+         when 'date'
+             text_field_tag detail.kind, detail.value, {:onclick => '$("#' + detail.kind + '").datepicker();'}
+         when 'choice'
+             select_tag detail.kind, options_for_select(['S', 'N'], 'S') 
+         else
+             text_field_tag detail.kind, detail.value
+         end %>
+  <% end %>
+  
+  <br/>
+  <%= submit_tag("Modifica", :class=>'btn btn-large') %>
+<% end %>
