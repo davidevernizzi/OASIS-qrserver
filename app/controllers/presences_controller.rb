@@ -2,7 +2,12 @@ class PresencesController < ApplicationController
   # GET /presences
   # GET /presences.json
   def index
-    @presences = Presence.all
+    if (params[:day] == nil)
+	@presences = Presence.all
+    else
+	@presences = Presence.where(created_at: params[:day].to_i.days.ago..1.days.from_now)
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,5 +89,18 @@ class PresencesController < ApplicationController
       format.html { redirect_to presences_url }
       format.json { head :no_content }
     end
+  end
+
+  def list
+    if params[:id] == 'all'
+       @badges = Badge.find(:all)
+    else
+       # use Badge.pluck instead?
+       a_badges = Array.new
+       a_badges << Badge.find(params[:id])
+       @badges = a_badges
+    end
+
+    render :list
   end
 end

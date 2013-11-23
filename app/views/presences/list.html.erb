@@ -1,0 +1,26 @@
+<%
+@badges.each do | b |
+   @presences = b.presences 
+%>
+   
+   <h2>Presences for <%= b.name %></h2>
+
+
+<table>
+  <tr>
+    <th>Created by</th>
+    <th>Value</th>
+    <th>Badge</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<%   @presences.each do |presence| %>
+<tr>
+<%=      render partial: "index", locals:{presence:presence} %>
+</tr>
+<%   end %>
+</table>
+<%end%>
