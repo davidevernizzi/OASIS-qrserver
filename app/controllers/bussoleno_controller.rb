@@ -16,6 +16,15 @@ class BussolenoController < ApplicationController
         )
     end
 
+    def export
+        json = Array.new
+        badges = Badge.all
+        badges.each do |badge|
+            json << badge.to_json
+        end
+        render :json => "[#{json.to_sentence(:last_word_connector=>', ')}]"
+    end
+
     def show
         @badge = Badge.find(params[:id])
 

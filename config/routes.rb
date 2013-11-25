@@ -1,6 +1,7 @@
 Qrserver::Application.routes.draw do
   get "bussoleno/index"
   get "bussoleno/new"
+  get "bussoleno/export", to: 'bussoleno#export'
   get "bussoleno/:id", to: 'bussoleno#show'
   post "bussoleno/new", to: 'bussoleno#create'
   get "bussoleno/edit/:id", to: 'bussoleno#edit'
