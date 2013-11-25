@@ -3,9 +3,9 @@ class PresencesController < ApplicationController
   # GET /presences.json
   def index
     if (params[:day] == nil)
-	@presences = Presence.all
+	@presences = Presence.order("created_at DESC")
     else
-	@presences = Presence.where(created_at: params[:day].to_i.days.ago..1.days.from_now)
+	@presences = Presence.where(created_at: params[:day].to_i.days.ago..1.days.from_now).order(:created_at)
     end
 
 

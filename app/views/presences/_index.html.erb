@@ -1,3 +1,12 @@
+<% if presence != nil %>
     <td><%= presence.created_by %></td>
     <td><%= presence.value %></td>
-    <td><%= presence.badge.name %></td>
+    <td><%= presence.created_at %></td>
+    <td>
+    <%= if presence.badge != nil
+            presence.badge.name
+        else
+            'NO NAME'
+        end %>
+    </td>
+<% end %>

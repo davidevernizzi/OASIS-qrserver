@@ -12,19 +12,10 @@
   </tr>
 
 <% @presences.each do |presence| %>
-<<<<<<< Updated upstream
   <tr>
-    <td><%= presence.created_by %></td>
-    <td><%= presence.value %></td>
-<<<<<<< Updated upstream
-    <td><%= presence.badge.name %></td>
-=======
     <td><%= presence.badge %></td>
-=======
 
-<%= render partial: "index", locals:{presence:presence} %>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+    <%= render partial: "index", locals:{presence:presence} %>
     <td><%= link_to 'Show', presence %></td>
     <td><%= link_to 'Edit', edit_presence_path(presence) %></td>
     <td><%= link_to 'Destroy', presence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
